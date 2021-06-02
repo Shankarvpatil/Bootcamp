@@ -1,0 +1,110 @@
+1 i). Print EmployeeName and TotalPay who has BasePay greater than 10000
+=>cat data.csv 
+awk '{if($4>10000) print $2 "     " $7}'
+
+ii).What is the aggregate TotalPay of employees whose jobtitle is 'CAPTAIN
+=>grep CAPTAIN data.csv
+
+
+
+iii).Print JobTitle and Overtimepay who has Overtimepay is between 7000 and 10000
+=>awk '{if($5>7000 && $5<10000) print $3 "    " $5 }' data.csv
+
+iv). Print average BasePay
+=>awk '{sum+=$4 ; count++} END {print sum/count}' data.csv
+
+2.Find the difference between original file and the updated file. Apply changes to the original file.
+=>[ -z "$VARIABLE" ] && usersecret="dH34xjaa23"
+
+
+if env | grep -q ^VARIABLE=
+
+then
+  
+	echo env variable is already exported
+
+else
+  
+	echo env variable was not exported, but now it is
+  export VARIABLE
+
+fi
+
+3.Chcek if a folder exists or not.
+
+if it's not present, create it. 
+=> if [ -d "test" ] 
+
+then
+    
+	echo "Directory test exists." 
+
+else
+    
+	mkdir test
+    
+	echo "Error: test does not exists."	
+
+fi
+
+4.Execute command hello and ls and check its execution status and print whether command is successfully executed or not.
+ls
+
+if [ $? -eq 0 ]; then
+   
+echo "succsess"
+
+else
+   
+	echo "FAIL"
+
+fi
+
+hello
+
+if [ $? -eq 0 ]; then
+	
+	echo "success"
+
+
+else
+	
+	echo "fail"
+
+fi
+
+5. Set Environment usersecret="dH34xJaa23" if its already not set
+
+if(env | grep "usersecret"); then
+  
+  echo "already exported"
+
+else
+
+  export usersecret=dH34xJaa23
+
+fi
+
+6.Find a word "systemd" from all log files in the folder /var/log and print number of occurence more than 0 against each file.
+=> for log in ls /var/log/*.log
+
+do
+	
+	count=grep -c 'systemd' $log
+	
+	if [ $count != 0 ]
+	
+	then
+
+		echo $count
+	
+	fi
+
+done
+ 6. Create processlist table displays process id, parent process id, command name,% of memory consumption,% of cpu utilization
+=>i.ps -elf
+ ii.ps -o pid,ppid,cmd,%mem,pcpu
+
+7.Find the difference between original file and the updated file. Apply changes to the original file.
+=> -q for only to check difference is present or not
+   -iEZ to check what is content and difference in the file
